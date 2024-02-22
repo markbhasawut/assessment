@@ -1,2 +1,5 @@
-package com.kbtg.bootcamp.posttest.lottery;public class LotteryController {
+package com.kbtg.bootcamp.posttest.lottery.controller;
+
+public class LotteryController {
+
 }
