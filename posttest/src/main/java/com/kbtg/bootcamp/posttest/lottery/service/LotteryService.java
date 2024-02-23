@@ -1,13 +1,12 @@
 package com.kbtg.bootcamp.posttest.lottery.service;
 
-import com.kbtg.bootcamp.posttest.lottery.entity.Lottery;
-
-import java.util.List;
-import java.util.Optional;
+import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryListResponseDto;
+import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryRequestDto;
+import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryResponseDto;
 
 public interface LotteryService {
 
-    List<Lottery> listAllLotteries();
+    <List> LotteryListResponseDto listAllLotteries();
 
-    Optional<Lottery> createLottery(int id);
+    LotteryResponseDto createLottery(LotteryRequestDto lotteryRequestDto);
 }

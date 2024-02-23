@@ -52,4 +52,6 @@ public class Lottery {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+
 }
