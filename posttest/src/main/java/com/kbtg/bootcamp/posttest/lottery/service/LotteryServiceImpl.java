@@ -35,10 +35,10 @@ public class LotteryServiceImpl implements LotteryService {
             throw new RuntimeException("Lottery exists in the database.");
         }
 
-        return new LotteryResponseDto(lotteryRepository.save(new Lottery(lotteryRequestDto.getTicket(),
+        return new LotteryResponseDto(lotteryRepository.save(new Lottery(
+                lotteryRequestDto.getTicket(),
                 lotteryRequestDto.getPrice(),
                 lotteryRequestDto.getAmount()))
-                .getTicket()
-        );
+                .getTicket());
     }
 }

@@ -6,7 +6,7 @@ import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryResponseDto;
 
 public interface LotteryService {
 
-    <List> LotteryListResponseDto listAllLotteries();
+    LotteryListResponseDto listAllLotteries();
 
     LotteryResponseDto createLottery(LotteryRequestDto lotteryRequestDto);
 }
