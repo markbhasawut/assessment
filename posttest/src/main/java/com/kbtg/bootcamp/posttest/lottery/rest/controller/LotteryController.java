@@ -28,6 +28,7 @@ public class LotteryController {
         return new ResponseEntity<>(new LotteryResponseDto(lotteryServiceImp.createLottery(request).getTicket()), HttpStatus.OK);
     }
 
+
     @GetMapping("/lotteries")
     public ResponseEntity<LotteryListResDto> listLotteries(){
         return new ResponseEntity<>(lotteryServiceImp.listAllLotteries(), HttpStatus.OK);

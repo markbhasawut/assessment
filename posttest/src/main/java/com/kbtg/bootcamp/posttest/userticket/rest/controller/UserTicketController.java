@@ -1,8 +1,8 @@
 package com.kbtg.bootcamp.posttest.userticket.rest.controller;
 
 import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryResponseDto;
-import com.kbtg.bootcamp.posttest.userticket.rest.dto.UserTicketResDto;
 import com.kbtg.bootcamp.posttest.userticket.rest.dto.UserTicketReqDto;
+import com.kbtg.bootcamp.posttest.userticket.rest.dto.UserTicketResDto;
 import com.kbtg.bootcamp.posttest.userticket.service.UserTicketService;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Validated
 public class UserTicketController {
-    private UserTicketService userTicketService;
+    private final UserTicketService userTicketService;
 
     @Autowired
     public UserTicketController(UserTicketService userTicketService) {
@@ -28,11 +28,11 @@ public class UserTicketController {
             @PathVariable("userId")
             @Pattern(regexp = "^0\\d{9}$", message = "must be a number only  and start with '0'")
             @Size(min = 10, max = 10, message = "must be a 10 digit")
-            String userId,
+            java.lang.String userId,
             @PathVariable("ticketId")
             @Pattern(regexp = "^\\d{6}$", message = "must be a number only")
             @Size(min = 6, max = 6, message = "must be a 6 digit")
-            String ticketId) {
+            java.lang.String ticketId) {
         return new ResponseEntity<>(userTicketService.buyLottery(userId, ticketId), HttpStatus.OK);
     }
 
@@ -42,7 +42,7 @@ public class UserTicketController {
             @PathVariable("userId")
             @Pattern(regexp = "^0\\d{9}$", message = "must be a number only  and start with '0'")
             @Size(min = 10, max = 10, message = "must be a 10 digit")
-            String userId) {
+            java.lang.String userId) {
         return new ResponseEntity<>(userTicketService.getLotteryByUserId(userId), HttpStatus.OK);
     }
 
@@ -53,11 +53,11 @@ public class UserTicketController {
             @PathVariable("userId")
             @Pattern(regexp = "^0\\d{9}$", message = "must be a number only  and start with '0'")
             @Size(min = 10, max = 10, message = "must be a 10 digit")
-            String userId,
+            java.lang.String userId,
             @PathVariable("ticketId")
             @Pattern(regexp = "^\\d{6}$", message = "must be a number only")
             @Size(min = 6, max = 6, message = "must be a 6 digit")
-            String ticketId) {
+            java.lang.String ticketId) {
         return new ResponseEntity<>(userTicketService.sellLottery(userId, ticketId), HttpStatus.OK);
     }
 

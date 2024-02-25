@@ -1,14 +1,15 @@
 package com.kbtg.bootcamp.posttest.lottery.service;
 
+import com.kbtg.bootcamp.posttest.lottery.entity.Lottery;
 import com.kbtg.bootcamp.posttest.lottery.exception.DubLotteryExceptionHandling;
+import com.kbtg.bootcamp.posttest.lottery.repo.LotteryRepo;
 import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryListResDto;
 import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryRequestDto;
 import com.kbtg.bootcamp.posttest.lottery.rest.dto.LotteryResponseDto;
-import com.kbtg.bootcamp.posttest.lottery.entity.Lottery;
-import com.kbtg.bootcamp.posttest.lottery.repo.LotteryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,12 @@ public class LotteryServiceImp implements LotteryService {
 
     @Override
     public LotteryListResDto listAllLotteries() {
-        return new LotteryListResDto(lotteryRepo.findAll().stream().map(Lottery::getTicket).collect(Collectors.toList()));
+        List<String> tickets = lotteryRepo.findAll()
+                .stream()
+                .map(Lottery::getTicket)
+                .collect(Collectors.toList());
+
+        return new LotteryListResDto(tickets); // Construct the response directly
     }
 
     @Override
@@ -38,8 +44,8 @@ public class LotteryServiceImp implements LotteryService {
         }
 
         return new LotteryResponseDto(lotteryRepo.save(new Lottery(lotteryRequestDto.getTicket(),
-                        lotteryRequestDto.getPrice(),
-                        lotteryRequestDto.getAmount()))
+                        lotteryRequestDto.getAmount(),
+                        lotteryRequestDto.getPrice()))
                 .getTicket()
         );
     }

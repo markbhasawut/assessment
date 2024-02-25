@@ -1,7 +1,5 @@
 package com.kbtg.bootcamp.posttest.lottery.rest.dto;
 
-import java.util.List;
-
 public class LotteryResponseDto {
 
     private String ticket;
