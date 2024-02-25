@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/assessment?searchpath=public&createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=Asia/Bangkok&prepareThreshold=0
+    url: jdbc:postgresql://postgresdb:5432/assessment
     username: admin
     password: secret_password
     hikari:
