@@ -30,7 +30,7 @@ public class UserTicketServiceImp implements  UserTicketService {
 
     @Override
     @Transactional
-    public UserTicketReqDto buyLottery(String userId, String ticketId) throws BadRequestException {
+    public UserTicketReqDto buyLottery(String userId, String ticketId) {
         Lottery lottery = lotteryRepo.findById(ticketId)
                 .orElseThrow(() -> new LotteryNotFoundException("Lottery not found"));
 
