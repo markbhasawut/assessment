@@ -94,10 +94,8 @@ class UserTicketServiceImpTest {
         userTicketList.add(userTicket);
         when(userTicketRepo.findByUserId(Mockito.any())).thenReturn(userTicketList);
 
-        // Act
         UserTicketResDto actualLotteriesByUserId = userTicketServiceImp.getLotteryByUserId(USER_ID);
 
-        // Assert
         verify(userTicketRepo).findByUserId(eq(USER_ID));
         assertEquals(100, actualLotteriesByUserId.getTotalPrice());
         assertEquals(1, actualLotteriesByUserId.getCount());
@@ -107,7 +105,7 @@ class UserTicketServiceImpTest {
 
     @Test
     @DisplayName("Should cost 190 when buying 2 lotteries cost 100 and 90 ")
-    void testGetLotteriesByUserId3() {
+    void testGetLotteryByUserId3() {
 
         Lottery lottery = new Lottery();
         lottery.setAmount(AMOUNT);
@@ -143,8 +141,8 @@ class UserTicketServiceImpTest {
     }
 
     @Test
-    @DisplayName("should be null when deleting wrong user_id and ticket number")
-    void testDeleteLotteriesByUserId() {
+    @DisplayName("Should be null when deleting wrong user_id and ticket number")
+    void testSellLottery() {
 
         when(userTicketRepo.findByUserId(Mockito.any())).thenReturn(new ArrayList<>());
 
